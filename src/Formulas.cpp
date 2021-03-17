@@ -18,11 +18,3 @@ double Gravity(double earth, double height)
     result = temp * constant;
     return result;
 }
-
-class Object
-{
-    public:
-        std::vector<double> x;
-        std::vector<double> y;
-        std::vector<double> z;
-}
