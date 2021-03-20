@@ -2,4 +2,4 @@
 
 #include "GLFW/glfw3.h"
 
-void Window(void);
+int Window(void);

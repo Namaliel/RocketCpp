@@ -1,6 +1,6 @@
 #include "GUI.hpp"
 
-void Window(void)
+int Window(void)
 {
     GLFWwindow* window;
 
