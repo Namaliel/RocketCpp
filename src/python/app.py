@@ -1,20 +1,33 @@
-import numpy
-import turtle
-from tkinter import *
+import tkinter
+from pyopengltk import OpenGLFrame
+from OpenGL import GL
+from OpenGL import GLU
 
-class Window(Frame):
-    def __init__(self, master=None):
-        Frame.__init__(self,master)
-        self.master = master
+verticies = ( (1, 1, 1), (1, -1, -1), (-1, -1, 1), (-1, -1, -1) )
+edges =     ( (0,1), (0,3), (0,7), (2,1), (2,3), (2,7), (6,3), (6,4) )
+
+def Cube():
+    GL.glBegin(GL.GL_LINES)
+    for edge in edges:
+        for vertex in edge:
+            GL.glVertex3fv(verticies[vertex])
+    GL.glEnd()
+
+class FigureSpinner( OpenGLFrame ):
+    def initgl(self):
+        GL.glLoadIdentity()
+        GLU.gluPerspective(45, (self.width/self.height), 0.1, 50.0)
+        GL.glTranslatef(0.0,0.0, -5)
+    def redraw(self):
+        GL.glRotatef(1, 3, 1, 1)
+        GL.glClear(GL.GL_COLOR_BUFFER_BIT|GL.GL_DEPTH_BUFFER_BIT)
+        Cube()
 
 def main():
-
-    root = Tk()
-    app = Window(root)
-
-    root.wm_title("Tkinter window")
-    root.mainloop()
+    frm = FigureSpinner( height = 600, width = 800 )
+    frm.animate = 10
+    frm.pack( fill=tkinter.BOTH, expand = 1 )
+    return frm.mainloop()
 
 if __name__=="__main__":
-
     main()
