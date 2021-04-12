@@ -1,7 +1,7 @@
 import sys
 import JSON
 import pandas
-import numpy 
+import numpy
 
 def Data():
     return data
