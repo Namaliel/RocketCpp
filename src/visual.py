@@ -1,5 +1,0 @@
-import tkinter
-
-def window():
-  return 0
-
