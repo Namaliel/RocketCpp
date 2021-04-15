@@ -1,2 +1,2 @@
 # RocketCpp
-Some spacy stuff
+Conceptos básicos y demas cosas para operar un cohete.
